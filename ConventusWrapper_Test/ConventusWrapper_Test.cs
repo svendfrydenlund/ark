@@ -117,7 +117,7 @@ namespace ConventusWrapper_Test
         [TestMethod]
         public void TestPublicAddress()
         {
-            Assert.Fail("Tet not implemented yet");
+            Assert.Fail("Test not implemented yet");
         }
 
         [TestMethod]
@@ -152,6 +152,8 @@ namespace ConventusWrapper_Test
             ConventusAddressWrapper caw = new ConventusAddressWrapper();
             List<ConventusMedlem> result = null;
 
+            Boolean xmlexceptionOccured = false;
+
             try
             {
                 result = caw.getMembersFromXml(s);
@@ -159,9 +161,15 @@ namespace ConventusWrapper_Test
             catch (System.Xml.XmlException)
             {
                 // Expected
+                xmlexceptionOccured = true;
+                
+                
             }
 
-            Assert.Fail("XMLException should have occured");
+            if (!xmlexceptionOccured)
+            {
+                Assert.Fail("XMLException should have occured");
+            }
         }
 
 

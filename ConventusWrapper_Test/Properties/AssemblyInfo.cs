@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ConventusWrapper_Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Netcompany A/S")]
+[assembly: AssemblyCompany("Amager Ro- og Kajakklub")]
 [assembly: AssemblyProduct("ConventusWrapper_Test")]
-[assembly: AssemblyCopyright("Copyright © Netcompany A/S 2013")]
+[assembly: AssemblyCopyright("Copyright © Amager Ro- og Kajakklub 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
