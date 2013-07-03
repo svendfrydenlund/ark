@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConventusWrapper", "ark_projects\ConventusWrapper.csproj", "{78B6FA17-CDB1-4EED-AEE2-872D497B7DE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConventusWrapper_Test", "ConventusWrapper_Test\ConventusWrapper_Test.csproj", "{172F09C9-0B98-4613-AFCA-E7C938F187C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78B6FA17-CDB1-4EED-AEE2-872D497B7DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B6FA17-CDB1-4EED-AEE2-872D497B7DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B6FA17-CDB1-4EED-AEE2-872D497B7DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B6FA17-CDB1-4EED-AEE2-872D497B7DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172F09C9-0B98-4613-AFCA-E7C938F187C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172F09C9-0B98-4613-AFCA-E7C938F187C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172F09C9-0B98-4613-AFCA-E7C938F187C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172F09C9-0B98-4613-AFCA-E7C938F187C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal
