@@ -42,27 +42,25 @@ namespace dk.arok.EntityModel
         /// Conventus selner ikke mellem for- og efternavn. Derfor bibeholdes fuldt navn her.
         /// Dataejer: Conventus
         /// </summary>
-        public string Navn { get;}
+        public string Navn { get; set; }
 
         /// <summary>
         /// I Conventus kan køn være mand, kvinde eller ukendt.
         /// Dataejer: Conventus
         /// </summary>
-        public KoenType Koen { get;}
+        public KoenType Koen { get; set; }
 
         /// <summary>
         /// Fødselsdato er for mange medlemmer ikke sat i Conventus. Derfor er feltet sat til Nullable.
         /// Dataejer: Conventus
         /// </summary>
-        public DateTime? Foedselsdato { get;}
+        public DateTime? Foedselsdato { get; set; }
 
         // TODO - tilføj felter omkring adresse m.v. fra Conventus og eventuelt flere som kun vedligeholdes uden for databasen, billede kunne også være sjovt.
 
         /// System attributter
         public string ChangedBy { get; set; }
         public DateTime LatestChange { get; set; }
-
-
     }
 
     
@@ -109,15 +107,12 @@ namespace dk.arok.EntityModel
         /// </summary>
         public virtual Medlem BehandletAf {get; set;}
         
-    }
-
+    
         /// <summary>
         ///  En ændring er altid knyttet til et medlem
         /// </summary>
         public virtual Medlem Medlem {get; set;}
         
-        
-
     }
 
     public enum SSOProviders {
@@ -172,16 +167,59 @@ namespace dk.arok.EntityModel
         /// <summary>
         /// Reference til Medlemet for dette MedlemSSO
         /// </summary>
-        public virtual Medlem Medlem {get; set}
+        public virtual Medlem Medlem {get; set;}
     }
     
   
     /* Nedenstående er entiteter som med fordel kan oprettes i datamodellen */
-
+    
     /* Rostatistik */
-  
-    // public class Baad; (id, navn, indkøbdato, type (kajak, inrigger, sculler), bemanding (1,2,3,4,5,8), status (virker, skade, ude af drift, kasseret), 
-     //   tilladelseskategori (grøn, gul, rød), sværhedsgrad (fx 1-10), historik (fritekst)
+    public enum BaadTyper {
+        Inrigger,
+        Kajak_kap,
+        Kajak_tur,
+        Kajak_polo,
+        Sculler
+    }
+
+    public enum BaadStatusVaerdier {
+        Virker,
+        Skadet,
+        UdeAfDrift,
+        Kasseret
+    }
+
+    public enum BaadKategori {
+        Grøn,
+        Gul,
+        Rød
+    }
+
+
+    public class Baad
+    {
+        public int BaadId { get; set; }
+        public string Navn { get; set; }
+        public DateTime IndkoebsDato { get; set; }
+        public BaadTyper BaadType { get; set; }
+        /// <summary>
+        /// Antal personer båden er beregnet til, inklusiv styrmand (1,2,3,4,5,8)
+        /// </summary>
+        public int bemanding { get; set; }
+
+        public BaadStatusVaerdier BaadStatus { get; set; }
+
+        public BaadKategori? BaadKategori { get; set; }
+
+        public int SvaerhedsGrad { get; set; }
+
+        public string Maerke { get; set; }
+
+        public string Beskrivelse { get; set; }
+
+        public string Historik { get; set; }
+    }
+
 
     // public class Rotur (roturId, udskrevet, indskrevet, båd_id, distance, tid, destination, bemærkning)
 
