@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARK.Website.Conventus", "ARK.Website.Conventus\ARK.Website.Conventus.csproj", "{47BB7199-4165-4A53-A716-C1917DBB7DC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARK.Website.Common", "ARK.Website.Common\ARK.Website.Common.csproj", "{2CF84CDD-A396-4F34-9F78-80263F363BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARK.Website.BLL", "ARK.Website.BLL\ARK.Website.BLL.csproj", "{ECEA23D9-7744-4498-A2ED-C490DD7EABDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARK.Website.EntityFramework.Main", "ARK.Website.EntityFramework.Main\ARK.Website.EntityFramework.Main.csproj", "{B42B3F24-CC50-4AAF-B7D5-68D70636994F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARK.Website.SMTPMailIntegration", "ARK.Website.SMTPMailIntegration\ARK.Website.SMTPMailIntegration.csproj", "{B1693367-4B3F-41F2-A09E-CBCABF23627C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47BB7199-4165-4A53-A716-C1917DBB7DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47BB7199-4165-4A53-A716-C1917DBB7DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47BB7199-4165-4A53-A716-C1917DBB7DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47BB7199-4165-4A53-A716-C1917DBB7DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CF84CDD-A396-4F34-9F78-80263F363BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF84CDD-A396-4F34-9F78-80263F363BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF84CDD-A396-4F34-9F78-80263F363BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF84CDD-A396-4F34-9F78-80263F363BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECEA23D9-7744-4498-A2ED-C490DD7EABDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECEA23D9-7744-4498-A2ED-C490DD7EABDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECEA23D9-7744-4498-A2ED-C490DD7EABDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECEA23D9-7744-4498-A2ED-C490DD7EABDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42B3F24-CC50-4AAF-B7D5-68D70636994F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42B3F24-CC50-4AAF-B7D5-68D70636994F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42B3F24-CC50-4AAF-B7D5-68D70636994F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42B3F24-CC50-4AAF-B7D5-68D70636994F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1693367-4B3F-41F2-A09E-CBCABF23627C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1693367-4B3F-41F2-A09E-CBCABF23627C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1693367-4B3F-41F2-A09E-CBCABF23627C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1693367-4B3F-41F2-A09E-CBCABF23627C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

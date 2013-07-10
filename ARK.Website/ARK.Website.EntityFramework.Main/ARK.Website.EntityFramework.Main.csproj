@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B42B3F24-CC50-4AAF-B7D5-68D70636994F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARK.Website.EntityFramework.Main</RootNamespace>
+    <AssemblyName>ARK.Website.EntityFramework.Main</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArkEntiteter.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArkEntiteter.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArkEntiteter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArkEntiteter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArkEntiteter.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Baad.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaadKategori.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaadType.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Begivenhed.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medlem.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Regnskabsmedlem.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rostatistik.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tur.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Turdeltager.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UdvidelseEntitetsmodel\ArkDatabaseUdvidelse.cs" />
+    <Compile Include="UdvidelseEntitetsmodel\BegivenhedUdvidelse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UdvidelseEntitetsmodel\MedlemUdvidelse.cs" />
+    <Compile Include="UdvidelseEntitetsmodel\RegnskabsmedlemUdvidelse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ArkEntiteter.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArkEntiteter.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ArkEntiteter.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArkEntiteter.edmx</DependentUpon>
+      <LastGenOutput>ArkEntiteter.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ArkEntiteter.edmx.diagram">
+      <DependentUpon>ArkEntiteter.edmx</DependentUpon>
+    </None>
+    <None Include="ArkEntiteter.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArkEntiteter.edmx</DependentUpon>
+      <LastGenOutput>ArkEntiteter.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ARK.Website.Common\ARK.Website.Common.csproj">
+      <Project>{2cf84cdd-a396-4f34-9f78-80263f363bb0}</Project>
+      <Name>ARK.Website.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

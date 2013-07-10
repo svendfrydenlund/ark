@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a30373986b2642f4a5f96a4ac07969ca" Name="Diagram1">
+        <EntityTypeShape EntityType="ArkEntiteter.Baad" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkEntiteter.BaadKategori" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkEntiteter.BaadType" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkEntiteter.Medlem" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkEntiteter.Tur" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkEntiteter.Turdeltager" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ArkEntiteter.Baad_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkEntiteter.Tur_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkEntiteter.BaadType_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkEntiteter.Turdeltager_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkEntiteter.Turdeltager_ibfk_2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ArkEntiteter.Regnskabsmedlem" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="ArkEntiteter.Rostatistik" Width="1.5" PointX="5.25" PointY="7.5" />
+        <AssociationConnector Association="ArkEntiteter.FK_RostatistikID" />
+        <EntityTypeShape EntityType="ArkEntiteter.Begivenhed" Width="1.5" PointX="0.75" PointY="3.375" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
