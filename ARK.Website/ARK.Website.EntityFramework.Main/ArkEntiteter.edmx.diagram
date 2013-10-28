@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a30373986b2642f4a5f96a4ac07969ca" Name="Diagram1">
-        <EntityTypeShape EntityType="ArkEntiteter.Baad" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArkEntiteter.BaadKategori" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArkEntiteter.BaadType" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArkEntiteter.Medlem" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArkEntiteter.Tur" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArkEntiteter.Turdeltager" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="ArkEntiteter.Baad_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ArkEntiteter.Tur_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ArkEntiteter.BaadType_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ArkEntiteter.Turdeltager_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ArkEntiteter.Turdeltager_ibfk_2" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ArkEntiteter.Regnskabsmedlem" Width="1.5" PointX="3" PointY="3.375" />
-        <EntityTypeShape EntityType="ArkEntiteter.Rostatistik" Width="1.5" PointX="5.25" PointY="7.5" />
+      <Diagram DiagramId="a30373986b2642f4a5f96a4ac07969ca" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="ArkEntiteter.Medlem" Width="1.5" PointX="4.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkEntiteter.Regnskabsmedlem" Width="1.5" PointX="2.625" PointY="0.5" />
+        <EntityTypeShape EntityType="ArkEntiteter.Rostatistik" Width="1.5" PointX="6.5" PointY="0.5" />
         <AssociationConnector Association="ArkEntiteter.FK_RostatistikID" />
-        <EntityTypeShape EntityType="ArkEntiteter.Begivenhed" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="ArkEntiteter.Begivenhed" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="ArkEntiteter.BilledDbBilleder" Width="1.5" PointX="0.5" PointY="5.75" />
+        <EntityTypeShape EntityType="ArkEntiteter.BilledDbKarakterer" Width="1.5" PointX="2.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ArkEntiteter.BilledDbKategoriRelation" Width="1.5" PointX="2.375" PointY="8" />
+        <EntityTypeShape EntityType="ArkEntiteter.BilledDbKkategorier" Width="1.5" PointX="4.375" PointY="8.25" />
+        <EntityTypeShape EntityType="ArkEntiteter.Mail" Width="1.5" PointX="8.5" PointY="2.75" />
+        <EntityTypeShape EntityType="ArkEntiteter.MailStatistik" Width="1.5" PointX="6.625" PointY="2.75" />
+        <AssociationConnector Association="ArkEntiteter.illustrationID" />
+        <AssociationConnector Association="ArkEntiteter.karakter" />
+        <AssociationConnector Association="ArkEntiteter.fk_BilledDbKategoriRelation_BilledDbKkategorier1" />
+        <AssociationConnector Association="ArkEntiteter.fk_MailStatistik_Mail1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

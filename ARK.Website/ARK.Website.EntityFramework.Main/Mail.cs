@@ -12,19 +12,18 @@ namespace ARK.Website.EntityFramework.Main
     using System;
     using System.Collections.Generic;
     
-    public partial class Baad
+    public partial class Mail
     {
-        public Baad()
+        public Mail()
         {
-            this.Turs = new HashSet<Tur>();
+            this.MailStatistiks = new HashSet<MailStatistik>();
         }
     
         public int ID { get; set; }
-        public int BaadTypeID { get; set; }
-        public string Navn { get; set; }
-        public int AntalPersoner { get; set; }
+        public string Body { get; set; }
+        public string Subject { get; set; }
+        public string Afsender { get; set; }
     
-        public virtual BaadType BaadType { get; set; }
-        public virtual ICollection<Tur> Turs { get; set; }
+        public virtual ICollection<MailStatistik> MailStatistiks { get; set; }
     }
 }

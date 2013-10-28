@@ -12,13 +12,13 @@ namespace ARK.Website.EntityFramework.Main
     using System;
     using System.Collections.Generic;
     
-    public partial class Turdeltager
+    public partial class MailStatistik
     {
         public int ID { get; set; }
-        public int MedlemID { get; set; }
-        public int TurID { get; set; }
+        public int ArkID { get; set; }
+        public int Handling { get; set; }
+        public int Mail_ID { get; set; }
     
-        public virtual Medlem Medlem { get; set; }
-        public virtual Tur Tur { get; set; }
+        public virtual Mail Mail { get; set; }
     }
 }

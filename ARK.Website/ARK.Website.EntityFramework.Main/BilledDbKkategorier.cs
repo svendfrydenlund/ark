@@ -12,18 +12,18 @@ namespace ARK.Website.EntityFramework.Main
     using System;
     using System.Collections.Generic;
     
-    public partial class BaadType
+    public partial class BilledDbKkategorier
     {
-        public BaadType()
+        public BilledDbKkategorier()
         {
-            this.Baads = new HashSet<Baad>();
+            this.BilledDbKategoriRelations = new HashSet<BilledDbKategoriRelation>();
         }
     
-        public int ID { get; set; }
-        public int BaadKategoriID { get; set; }
-        public string Navn { get; set; }
+        public int kategoriID { get; set; }
+        public string kategoriTitel { get; set; }
+        public Nullable<int> raekkeFoelge { get; set; }
+        public int superKategoriID { get; set; }
     
-        public virtual ICollection<Baad> Baads { get; set; }
-        public virtual BaadKategori BaadKategori { get; set; }
+        public virtual ICollection<BilledDbKategoriRelation> BilledDbKategoriRelations { get; set; }
     }
 }

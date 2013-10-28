@@ -25,14 +25,15 @@ namespace ARK.Website.EntityFramework.Main
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Baad> Baads { get; set; }
-        public DbSet<BaadKategori> BaadKategoris { get; set; }
-        public DbSet<BaadType> BaadTypes { get; set; }
         public DbSet<Medlem> Medlems { get; set; }
-        public DbSet<Tur> Turs { get; set; }
-        public DbSet<Turdeltager> Turdeltagers { get; set; }
         public DbSet<Regnskabsmedlem> Regnskabsmedlems { get; set; }
         public DbSet<Rostatistik> Rostatistiks { get; set; }
         public DbSet<Begivenhed> Begivenheds { get; set; }
+        public DbSet<BilledDbBilleder> BilledDbBilleders { get; set; }
+        public DbSet<BilledDbKarakterer> BilledDbKarakterers { get; set; }
+        public DbSet<BilledDbKategoriRelation> BilledDbKategoriRelations { get; set; }
+        public DbSet<BilledDbKkategorier> BilledDbKkategoriers { get; set; }
+        public DbSet<Mail> Mails { get; set; }
+        public DbSet<MailStatistik> MailStatistiks { get; set; }
     }
 }

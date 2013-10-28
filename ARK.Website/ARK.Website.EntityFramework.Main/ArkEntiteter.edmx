@@ -7,37 +7,34 @@
     <Schema Namespace="ArkEntiteter.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ArkEntiteterStoreContainer">
           <EntitySet Name="Begivenhed" EntityType="ArkEntiteter.Store.Begivenhed" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
-          <EntitySet Name="Baad" EntityType="ArkEntiteter.Store.Baad" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
-          <EntitySet Name="BaadKategori" EntityType="ArkEntiteter.Store.BaadKategori" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
-          <EntitySet Name="BaadType" EntityType="ArkEntiteter.Store.BaadType" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
+          <EntitySet Name="BilledDbBilleder" EntityType="ArkEntiteter.Store.BilledDbBilleder" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
+          <EntitySet Name="BilledDbKarakterer" EntityType="ArkEntiteter.Store.BilledDbKarakterer" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
+          <EntitySet Name="BilledDbKategoriRelation" EntityType="ArkEntiteter.Store.BilledDbKategoriRelation" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
+          <EntitySet Name="BilledDbKkategorier" EntityType="ArkEntiteter.Store.BilledDbKkategorier" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
+          <EntitySet Name="Mail" EntityType="ArkEntiteter.Store.Mail" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
+          <EntitySet Name="MailStatistik" EntityType="ArkEntiteter.Store.MailStatistik" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
           <EntitySet Name="Medlem" EntityType="ArkEntiteter.Store.Medlem" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
           <EntitySet Name="Regnskabsmedlem" EntityType="ArkEntiteter.Store.Regnskabsmedlem" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
           <EntitySet Name="Rostatistik" EntityType="ArkEntiteter.Store.Rostatistik" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
-          <EntitySet Name="Tur" EntityType="ArkEntiteter.Store.Tur" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
-          <EntitySet Name="Turdeltager" EntityType="ArkEntiteter.Store.Turdeltager" store:Type="Tables" Schema="arbejdernesroklub_dk_db" />
-          <AssociationSet Name="Baad_ibfk_1" Association="ArkEntiteter.Store.Baad_ibfk_1">
-            <End Role="BaadType" EntitySet="BaadType" />
-            <End Role="Baad" EntitySet="Baad" />
+          <AssociationSet Name="fk_BilledDbKategoriRelation_BilledDbKkategorier1" Association="ArkEntiteter.Store.fk_BilledDbKategoriRelation_BilledDbKkategorier1">
+            <End Role="BilledDbKkategorier" EntitySet="BilledDbKkategorier" />
+            <End Role="BilledDbKategoriRelation" EntitySet="BilledDbKategoriRelation" />
           </AssociationSet>
-          <AssociationSet Name="BaadType_ibfk_1" Association="ArkEntiteter.Store.BaadType_ibfk_1">
-            <End Role="BaadKategori" EntitySet="BaadKategori" />
-            <End Role="BaadType" EntitySet="BaadType" />
+          <AssociationSet Name="fk_MailStatistik_Mail1" Association="ArkEntiteter.Store.fk_MailStatistik_Mail1">
+            <End Role="Mail" EntitySet="Mail" />
+            <End Role="MailStatistik" EntitySet="MailStatistik" />
           </AssociationSet>
           <AssociationSet Name="FK_RostatistikID" Association="ArkEntiteter.Store.FK_RostatistikID">
             <End Role="Rostatistik" EntitySet="Rostatistik" />
             <End Role="Medlem" EntitySet="Medlem" />
           </AssociationSet>
-          <AssociationSet Name="Tur_ibfk_1" Association="ArkEntiteter.Store.Tur_ibfk_1">
-            <End Role="Baad" EntitySet="Baad" />
-            <End Role="Tur" EntitySet="Tur" />
+          <AssociationSet Name="illustrationID" Association="ArkEntiteter.Store.illustrationID">
+            <End Role="BilledDbBilleder" EntitySet="BilledDbBilleder" />
+            <End Role="BilledDbKategoriRelation" EntitySet="BilledDbKategoriRelation" />
           </AssociationSet>
-          <AssociationSet Name="Turdeltager_ibfk_1" Association="ArkEntiteter.Store.Turdeltager_ibfk_1">
-            <End Role="Medlem" EntitySet="Medlem" />
-            <End Role="Turdeltager" EntitySet="Turdeltager" />
-          </AssociationSet>
-          <AssociationSet Name="Turdeltager_ibfk_2" Association="ArkEntiteter.Store.Turdeltager_ibfk_2">
-            <End Role="Tur" EntitySet="Tur" />
-            <End Role="Turdeltager" EntitySet="Turdeltager" />
+          <AssociationSet Name="karakter" Association="ArkEntiteter.Store.karakter">
+            <End Role="BilledDbKarakterer" EntitySet="BilledDbKarakterer" />
+            <End Role="BilledDbBilleder" EntitySet="BilledDbBilleder" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Begivenhed">
@@ -46,35 +43,74 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Niveau" Type="enum" Nullable="false" />
+          <Property Name="Noegleord" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="IndsatTid" Type="datetime" Nullable="false" />
           <Property Name="MedlemID" Type="int" />
           <Property Name="Applikationskontekst" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="Beskrivelse" Type="text" Nullable="false" />
-          <Property Name="Noegleord" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Baad">
+        <EntityType Name="BilledDbBilleder">
+          <Key>
+            <PropertyRef Name="illustrationID" />
+          </Key>
+          <Property Name="illustrationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="filextension" Type="varchar" MaxLength="50" />
+          <Property Name="navn" Type="varchar" MaxLength="120" />
+          <Property Name="beskrivelse" Type="longtext" />
+          <Property Name="hojde" Type="int" />
+          <Property Name="bredde" Type="int" />
+          <Property Name="fotograf" Type="varchar" MaxLength="50" />
+          <Property Name="personer" Type="varchar" MaxLength="255" />
+          <Property Name="dato" Type="datetime" />
+          <Property Name="karakter" Type="int" Nullable="false" />
+          <Property Name="notat" Type="varchar" MaxLength="255" />
+          <Property Name="sted" Type="varchar" MaxLength="255" />
+          <Property Name="hits" Type="int" />
+          <Property Name="internHits" Type="int" />
+          <Property Name="originaltFilNavn" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="BilledDbKarakterer">
+          <Key>
+            <PropertyRef Name="karakter" />
+          </Key>
+          <Property Name="karakter" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="titel" Type="varchar" MaxLength="50" />
+          <Property Name="raekkeFoelge" Type="int" />
+        </EntityType>
+        <EntityType Name="BilledDbKategoriRelation">
+          <Key>
+            <PropertyRef Name="billedeKategoriID" />
+          </Key>
+          <Property Name="billedeKategoriID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="illustrationID" Type="int" Nullable="false" />
+          <Property Name="kategoriID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BilledDbKkategorier">
+          <Key>
+            <PropertyRef Name="kategoriID" />
+          </Key>
+          <Property Name="kategoriID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriTitel" Type="varchar" MaxLength="63" />
+          <Property Name="raekkeFoelge" Type="int" />
+          <Property Name="superKategoriID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mail">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="BaadTypeID" Type="int" Nullable="false" />
-          <Property Name="Navn" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="AntalPersoner" Type="int" Nullable="false" />
+          <Property Name="Body" Type="text" />
+          <Property Name="Subject" Type="varchar" MaxLength="255" />
+          <Property Name="Afsender" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="BaadKategori">
+        <EntityType Name="MailStatistik">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Navn" Type="varchar" Nullable="false" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="BaadType">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="BaadKategoriID" Type="int" Nullable="false" />
-          <Property Name="Navn" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ArkID" Type="int" Nullable="false" />
+          <Property Name="Handling" Type="int" Nullable="false" />
+          <Property Name="Mail_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Medlem">
           <Key>
@@ -94,6 +130,8 @@
           <Property Name="KoenFelt" Type="enum" />
           <Property Name="MobilNummer" Type="varchar" MaxLength="50" />
           <Property Name="RostatistikID" Type="int" Nullable="false" />
+          <Property Name="Brugernavn" Type="varchar" MaxLength="250" />
+          <Property Name="Kodeord" Type="varchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="Regnskabsmedlem">
           <Key>
@@ -121,44 +159,27 @@
           <Property Name="KilometerDetteAar" Type="int" Nullable="false" />
           <Property Name="KilometerSidsteAar" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Tur">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="BaadID" Type="int" Nullable="false" />
-          <Property Name="AntalKilometer" Type="int" Nullable="false" />
-          <Property Name="StartTidspunkt" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Turdeltager">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="MedlemID" Type="int" Nullable="false" />
-          <Property Name="TurID" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="Baad_ibfk_1">
-          <End Role="BaadType" Type="ArkEntiteter.Store.BaadType" Multiplicity="1" />
-          <End Role="Baad" Type="ArkEntiteter.Store.Baad" Multiplicity="*" />
+        <Association Name="fk_BilledDbKategoriRelation_BilledDbKkategorier1">
+          <End Role="BilledDbKkategorier" Type="ArkEntiteter.Store.BilledDbKkategorier" Multiplicity="1" />
+          <End Role="BilledDbKategoriRelation" Type="ArkEntiteter.Store.BilledDbKategoriRelation" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="BaadType">
-              <PropertyRef Name="ID" />
+            <Principal Role="BilledDbKkategorier">
+              <PropertyRef Name="kategoriID" />
             </Principal>
-            <Dependent Role="Baad">
-              <PropertyRef Name="BaadTypeID" />
+            <Dependent Role="BilledDbKategoriRelation">
+              <PropertyRef Name="kategoriID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="BaadType_ibfk_1">
-          <End Role="BaadKategori" Type="ArkEntiteter.Store.BaadKategori" Multiplicity="1" />
-          <End Role="BaadType" Type="ArkEntiteter.Store.BaadType" Multiplicity="*" />
+        <Association Name="fk_MailStatistik_Mail1">
+          <End Role="Mail" Type="ArkEntiteter.Store.Mail" Multiplicity="1" />
+          <End Role="MailStatistik" Type="ArkEntiteter.Store.MailStatistik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="BaadKategori">
+            <Principal Role="Mail">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="BaadType">
-              <PropertyRef Name="BaadKategoriID" />
+            <Dependent Role="MailStatistik">
+              <PropertyRef Name="Mail_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -176,39 +197,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Tur_ibfk_1">
-          <End Role="Baad" Type="ArkEntiteter.Store.Baad" Multiplicity="1" />
-          <End Role="Tur" Type="ArkEntiteter.Store.Tur" Multiplicity="*" />
+        <Association Name="illustrationID">
+          <End Role="BilledDbBilleder" Type="ArkEntiteter.Store.BilledDbBilleder" Multiplicity="1" />
+          <End Role="BilledDbKategoriRelation" Type="ArkEntiteter.Store.BilledDbKategoriRelation" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Baad">
-              <PropertyRef Name="ID" />
+            <Principal Role="BilledDbBilleder">
+              <PropertyRef Name="illustrationID" />
             </Principal>
-            <Dependent Role="Tur">
-              <PropertyRef Name="BaadID" />
+            <Dependent Role="BilledDbKategoriRelation">
+              <PropertyRef Name="illustrationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Turdeltager_ibfk_1">
-          <End Role="Medlem" Type="ArkEntiteter.Store.Medlem" Multiplicity="1" />
-          <End Role="Turdeltager" Type="ArkEntiteter.Store.Turdeltager" Multiplicity="*" />
+        <Association Name="karakter">
+          <End Role="BilledDbKarakterer" Type="ArkEntiteter.Store.BilledDbKarakterer" Multiplicity="1" />
+          <End Role="BilledDbBilleder" Type="ArkEntiteter.Store.BilledDbBilleder" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Medlem">
-              <PropertyRef Name="ID" />
+            <Principal Role="BilledDbKarakterer">
+              <PropertyRef Name="karakter" />
             </Principal>
-            <Dependent Role="Turdeltager">
-              <PropertyRef Name="MedlemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Turdeltager_ibfk_2">
-          <End Role="Tur" Type="ArkEntiteter.Store.Tur" Multiplicity="1" />
-          <End Role="Turdeltager" Type="ArkEntiteter.Store.Turdeltager" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tur">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Turdeltager">
-              <PropertyRef Name="TurID" />
+            <Dependent Role="BilledDbBilleder">
+              <PropertyRef Name="karakter" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -217,32 +226,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ArkEntiteter" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ArkDatabase" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Baads" EntityType="ArkEntiteter.Baad" />
-          <EntitySet Name="BaadKategoris" EntityType="ArkEntiteter.BaadKategori" />
-          <EntitySet Name="BaadTypes" EntityType="ArkEntiteter.BaadType" />
           <EntitySet Name="Medlems" EntityType="ArkEntiteter.Medlem" />
-          <EntitySet Name="Turs" EntityType="ArkEntiteter.Tur" />
-          <EntitySet Name="Turdeltagers" EntityType="ArkEntiteter.Turdeltager" />
-          <AssociationSet Name="Baad_ibfk_1" Association="ArkEntiteter.Baad_ibfk_1">
-            <End Role="BaadType" EntitySet="BaadTypes" />
-            <End Role="Baad" EntitySet="Baads" />
-          </AssociationSet>
-          <AssociationSet Name="Tur_ibfk_1" Association="ArkEntiteter.Tur_ibfk_1">
-            <End Role="Baad" EntitySet="Baads" />
-            <End Role="Tur" EntitySet="Turs" />
-          </AssociationSet>
-          <AssociationSet Name="BaadType_ibfk_1" Association="ArkEntiteter.BaadType_ibfk_1">
-            <End Role="BaadKategori" EntitySet="BaadKategoris" />
-            <End Role="BaadType" EntitySet="BaadTypes" />
-          </AssociationSet>
-          <AssociationSet Name="Turdeltager_ibfk_1" Association="ArkEntiteter.Turdeltager_ibfk_1">
-            <End Role="Medlem" EntitySet="Medlems" />
-            <End Role="Turdeltager" EntitySet="Turdeltagers" />
-          </AssociationSet>
-          <AssociationSet Name="Turdeltager_ibfk_2" Association="ArkEntiteter.Turdeltager_ibfk_2">
-            <End Role="Tur" EntitySet="Turs" />
-            <End Role="Turdeltager" EntitySet="Turdeltagers" />
-          </AssociationSet>
           <EntitySet Name="Regnskabsmedlems" EntityType="ArkEntiteter.Regnskabsmedlem" />
           <EntitySet Name="Rostatistiks" EntityType="ArkEntiteter.Rostatistik" />
           <AssociationSet Name="FK_RostatistikID" Association="ArkEntiteter.FK_RostatistikID">
@@ -250,42 +234,34 @@
             <End Role="Medlem" EntitySet="Medlems" />
           </AssociationSet>
           <EntitySet Name="Begivenheds" EntityType="ArkEntiteter.Begivenhed" />
+          <EntitySet Name="BilledDbBilleders" EntityType="ArkEntiteter.BilledDbBilleder" />
+          <EntitySet Name="BilledDbKarakterers" EntityType="ArkEntiteter.BilledDbKarakterer" />
+          <EntitySet Name="BilledDbKategoriRelations" EntityType="ArkEntiteter.BilledDbKategoriRelation" />
+          <EntitySet Name="BilledDbKkategoriers" EntityType="ArkEntiteter.BilledDbKkategorier" />
+          <EntitySet Name="Mails" EntityType="ArkEntiteter.Mail" />
+          <EntitySet Name="MailStatistiks" EntityType="ArkEntiteter.MailStatistik" />
+          <AssociationSet Name="illustrationID" Association="ArkEntiteter.illustrationID">
+            <End Role="BilledDbBilleder" EntitySet="BilledDbBilleders" />
+            <End Role="BilledDbKategoriRelation" EntitySet="BilledDbKategoriRelations" />
+          </AssociationSet>
+          <AssociationSet Name="karakter" Association="ArkEntiteter.karakter">
+            <End Role="BilledDbKarakterer" EntitySet="BilledDbKarakterers" />
+            <End Role="BilledDbBilleder" EntitySet="BilledDbBilleders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BilledDbKategoriRelation_BilledDbKkategorier1" Association="ArkEntiteter.fk_BilledDbKategoriRelation_BilledDbKkategorier1">
+            <End Role="BilledDbKkategorier" EntitySet="BilledDbKkategoriers" />
+            <End Role="BilledDbKategoriRelation" EntitySet="BilledDbKategoriRelations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MailStatistik_Mail1" Association="ArkEntiteter.fk_MailStatistik_Mail1">
+            <End Role="Mail" EntitySet="Mails" />
+            <End Role="MailStatistik" EntitySet="MailStatistiks" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Baad">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="BaadTypeID" Type="Int32" Nullable="false" />
-          <Property Name="Navn" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="AntalPersoner" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BaadType" Relationship="ArkEntiteter.Baad_ibfk_1" FromRole="Baad" ToRole="BaadType" />
-          <NavigationProperty Name="Turs" Relationship="ArkEntiteter.Tur_ibfk_1" FromRole="Baad" ToRole="Tur" />
-        </EntityType>
-        <EntityType Name="BaadKategori">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Navn" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="BaadTypes" Relationship="ArkEntiteter.BaadType_ibfk_1" FromRole="BaadKategori" ToRole="BaadType" />
-        </EntityType>
-        <EntityType Name="BaadType">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="BaadKategoriID" Type="Int32" Nullable="false" />
-          <Property Name="Navn" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Baads" Relationship="ArkEntiteter.Baad_ibfk_1" FromRole="BaadType" ToRole="Baad" />
-          <NavigationProperty Name="BaadKategori" Relationship="ArkEntiteter.BaadType_ibfk_1" FromRole="BaadType" ToRole="BaadKategori" />
-        </EntityType>
         <EntityType Name="Medlem">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Turdeltagers" Relationship="ArkEntiteter.Turdeltager_ibfk_1" FromRole="Medlem" ToRole="Turdeltager" />
           <Property Type="DateTime" Name="IndsatTid" Nullable="false" Precision="0" />
           <Property Type="DateTime" Name="OpdateretTid" Nullable="false" Precision="0" />
           <Property Type="Int32" Name="ArkID" Nullable="false" />
@@ -300,88 +276,9 @@
           <Property Type="String" Name="MobilNummer" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="RostatistikID" Nullable="false" />
           <NavigationProperty Name="Rostatistik" Relationship="ArkEntiteter.FK_RostatistikID" FromRole="Medlem" ToRole="Rostatistik" />
+          <Property Type="String" Name="Brugernavn" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Kodeord" MaxLength="32" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Tur">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="BaadID" Type="Int32" Nullable="false" />
-          <Property Name="AntalKilometer" Type="Int32" Nullable="false" />
-          <Property Name="StartTidspunkt" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Baad" Relationship="ArkEntiteter.Tur_ibfk_1" FromRole="Tur" ToRole="Baad" />
-          <NavigationProperty Name="Turdeltagers" Relationship="ArkEntiteter.Turdeltager_ibfk_2" FromRole="Tur" ToRole="Turdeltager" />
-        </EntityType>
-        <EntityType Name="Turdeltager">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="MedlemID" Type="Int32" Nullable="false" />
-          <Property Name="TurID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Medlem" Relationship="ArkEntiteter.Turdeltager_ibfk_1" FromRole="Turdeltager" ToRole="Medlem" />
-          <NavigationProperty Name="Tur" Relationship="ArkEntiteter.Turdeltager_ibfk_2" FromRole="Turdeltager" ToRole="Tur" />
-        </EntityType>
-        <Association Name="Baad_ibfk_1">
-          <End Role="BaadType" Type="ArkEntiteter.BaadType" Multiplicity="1" />
-          <End Role="Baad" Type="ArkEntiteter.Baad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BaadType">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Baad">
-              <PropertyRef Name="BaadTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Tur_ibfk_1">
-          <End Role="Baad" Type="ArkEntiteter.Baad" Multiplicity="1" />
-          <End Role="Tur" Type="ArkEntiteter.Tur" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Baad">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Tur">
-              <PropertyRef Name="BaadID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BaadType_ibfk_1">
-          <End Role="BaadKategori" Type="ArkEntiteter.BaadKategori" Multiplicity="1" />
-          <End Role="BaadType" Type="ArkEntiteter.BaadType" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BaadKategori">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BaadType">
-              <PropertyRef Name="BaadKategoriID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Turdeltager_ibfk_1">
-          <End Role="Medlem" Type="ArkEntiteter.Medlem" Multiplicity="1" />
-          <End Role="Turdeltager" Type="ArkEntiteter.Turdeltager" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Medlem">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Turdeltager">
-              <PropertyRef Name="MedlemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Turdeltager_ibfk_2">
-          <End Role="Tur" Type="ArkEntiteter.Tur" Multiplicity="1" />
-          <End Role="Turdeltager" Type="ArkEntiteter.Turdeltager" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tur">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Turdeltager">
-              <PropertyRef Name="TurID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Regnskabsmedlem">
           <Key>
             <PropertyRef Name="ID" />
@@ -433,42 +330,136 @@
           <Property Type="String" Name="Beskrivelse" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Noegleord" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="BilledDbBilleder">
+          <Key>
+            <PropertyRef Name="illustrationID" />
+          </Key>
+          <Property Type="Int32" Name="illustrationID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="filextension" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="navn" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="beskrivelse" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="hojde" />
+          <Property Type="Int32" Name="bredde" />
+          <Property Type="String" Name="fotograf" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="personer" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dato" />
+          <Property Type="Int32" Name="karakter" Nullable="false" />
+          <Property Type="String" Name="notat" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sted" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="hits" />
+          <Property Type="Int32" Name="internHits" />
+          <Property Type="String" Name="originaltFilNavn" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BilledDbKategoriRelations" Relationship="ArkEntiteter.illustrationID" FromRole="BilledDbBilleder" ToRole="BilledDbKategoriRelation" />
+          <NavigationProperty Name="BilledDbKarakterer" Relationship="ArkEntiteter.karakter" FromRole="BilledDbBilleder" ToRole="BilledDbKarakterer" />
+        </EntityType>
+        <EntityType Name="BilledDbKarakterer">
+          <Key>
+            <PropertyRef Name="karakter" />
+          </Key>
+          <Property Type="Int32" Name="karakter" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="titel" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="raekkeFoelge" />
+          <NavigationProperty Name="BilledDbBilleders" Relationship="ArkEntiteter.karakter" FromRole="BilledDbKarakterer" ToRole="BilledDbBilleder" />
+        </EntityType>
+        <EntityType Name="BilledDbKategoriRelation">
+          <Key>
+            <PropertyRef Name="billedeKategoriID" />
+          </Key>
+          <Property Type="Int32" Name="billedeKategoriID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="illustrationID" Nullable="false" />
+          <Property Type="Int32" Name="kategoriID" Nullable="false" />
+          <NavigationProperty Name="BilledDbBilleder" Relationship="ArkEntiteter.illustrationID" FromRole="BilledDbKategoriRelation" ToRole="BilledDbBilleder" />
+          <NavigationProperty Name="BilledDbKkategorier" Relationship="ArkEntiteter.fk_BilledDbKategoriRelation_BilledDbKkategorier1" FromRole="BilledDbKategoriRelation" ToRole="BilledDbKkategorier" />
+        </EntityType>
+        <EntityType Name="BilledDbKkategorier">
+          <Key>
+            <PropertyRef Name="kategoriID" />
+          </Key>
+          <Property Type="Int32" Name="kategoriID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="kategoriTitel" MaxLength="63" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="raekkeFoelge" />
+          <Property Type="Int32" Name="superKategoriID" Nullable="false" />
+          <NavigationProperty Name="BilledDbKategoriRelations" Relationship="ArkEntiteter.fk_BilledDbKategoriRelation_BilledDbKkategorier1" FromRole="BilledDbKkategorier" ToRole="BilledDbKategoriRelation" />
+        </EntityType>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Body" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Subject" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Afsender" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MailStatistiks" Relationship="ArkEntiteter.fk_MailStatistik_Mail1" FromRole="Mail" ToRole="MailStatistik" />
+        </EntityType>
+        <EntityType Name="MailStatistik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ArkID" Nullable="false" />
+          <Property Type="Int32" Name="Handling" Nullable="false" />
+          <Property Type="Int32" Name="Mail_ID" Nullable="false" />
+          <NavigationProperty Name="Mail" Relationship="ArkEntiteter.fk_MailStatistik_Mail1" FromRole="MailStatistik" ToRole="Mail" />
+        </EntityType>
+        <Association Name="illustrationID">
+          <End Type="ArkEntiteter.BilledDbBilleder" Role="BilledDbBilleder" Multiplicity="1" />
+          <End Type="ArkEntiteter.BilledDbKategoriRelation" Role="BilledDbKategoriRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BilledDbBilleder">
+              <PropertyRef Name="illustrationID" />
+            </Principal>
+            <Dependent Role="BilledDbKategoriRelation">
+              <PropertyRef Name="illustrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="karakter">
+          <End Type="ArkEntiteter.BilledDbKarakterer" Role="BilledDbKarakterer" Multiplicity="1" />
+          <End Type="ArkEntiteter.BilledDbBilleder" Role="BilledDbBilleder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BilledDbKarakterer">
+              <PropertyRef Name="karakter" />
+            </Principal>
+            <Dependent Role="BilledDbBilleder">
+              <PropertyRef Name="karakter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BilledDbKategoriRelation_BilledDbKkategorier1">
+          <End Type="ArkEntiteter.BilledDbKkategorier" Role="BilledDbKkategorier" Multiplicity="1" />
+          <End Type="ArkEntiteter.BilledDbKategoriRelation" Role="BilledDbKategoriRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BilledDbKkategorier">
+              <PropertyRef Name="kategoriID" />
+            </Principal>
+            <Dependent Role="BilledDbKategoriRelation">
+              <PropertyRef Name="kategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MailStatistik_Mail1">
+          <End Type="ArkEntiteter.Mail" Role="Mail" Multiplicity="1" />
+          <End Type="ArkEntiteter.MailStatistik" Role="MailStatistik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MailStatistik">
+              <PropertyRef Name="Mail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ArkEntiteterStoreContainer" CdmEntityContainer="ArkDatabase">
-          <EntitySetMapping Name="Baads">
-            <EntityTypeMapping TypeName="ArkEntiteter.Baad">
-              <MappingFragment StoreEntitySet="Baad">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="BaadTypeID" ColumnName="BaadTypeID" />
-                <ScalarProperty Name="Navn" ColumnName="Navn" />
-                <ScalarProperty Name="AntalPersoner" ColumnName="AntalPersoner" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BaadKategoris">
-            <EntityTypeMapping TypeName="ArkEntiteter.BaadKategori">
-              <MappingFragment StoreEntitySet="BaadKategori">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Navn" ColumnName="Navn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BaadTypes">
-            <EntityTypeMapping TypeName="ArkEntiteter.BaadType">
-              <MappingFragment StoreEntitySet="BaadType">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="BaadKategoriID" ColumnName="BaadKategoriID" />
-                <ScalarProperty Name="Navn" ColumnName="Navn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Medlems">
             <EntityTypeMapping TypeName="ArkEntiteter.Medlem">
               <MappingFragment StoreEntitySet="Medlem">
+                <ScalarProperty Name="Kodeord" ColumnName="Kodeord" />
+                <ScalarProperty Name="Brugernavn" ColumnName="Brugernavn" />
                 <ScalarProperty Name="RostatistikID" ColumnName="RostatistikID" />
                 <ScalarProperty Name="MobilNummer" ColumnName="MobilNummer" />
                 <ScalarProperty Name="KoenFelt" ColumnName="KoenFelt" />
@@ -483,25 +474,6 @@
                 <ScalarProperty Name="OpdateretTid" ColumnName="OpdateretTid" />
                 <ScalarProperty Name="IndsatTid" ColumnName="IndsatTid" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Turs">
-            <EntityTypeMapping TypeName="ArkEntiteter.Tur">
-              <MappingFragment StoreEntitySet="Tur">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="BaadID" ColumnName="BaadID" />
-                <ScalarProperty Name="AntalKilometer" ColumnName="AntalKilometer" />
-                <ScalarProperty Name="StartTidspunkt" ColumnName="StartTidspunkt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Turdeltagers">
-            <EntityTypeMapping TypeName="ArkEntiteter.Turdeltager">
-              <MappingFragment StoreEntitySet="Turdeltager">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MedlemID" ColumnName="MedlemID" />
-                <ScalarProperty Name="TurID" ColumnName="TurID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -542,6 +514,75 @@
                 <ScalarProperty Name="MedlemID" ColumnName="MedlemID" />
                 <ScalarProperty Name="IndsatTid" ColumnName="IndsatTid" />
                 <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BilledDbBilleders">
+            <EntityTypeMapping TypeName="ArkEntiteter.BilledDbBilleder">
+              <MappingFragment StoreEntitySet="BilledDbBilleder">
+                <ScalarProperty Name="originaltFilNavn" ColumnName="originaltFilNavn" />
+                <ScalarProperty Name="internHits" ColumnName="internHits" />
+                <ScalarProperty Name="hits" ColumnName="hits" />
+                <ScalarProperty Name="sted" ColumnName="sted" />
+                <ScalarProperty Name="notat" ColumnName="notat" />
+                <ScalarProperty Name="karakter" ColumnName="karakter" />
+                <ScalarProperty Name="dato" ColumnName="dato" />
+                <ScalarProperty Name="personer" ColumnName="personer" />
+                <ScalarProperty Name="fotograf" ColumnName="fotograf" />
+                <ScalarProperty Name="bredde" ColumnName="bredde" />
+                <ScalarProperty Name="hojde" ColumnName="hojde" />
+                <ScalarProperty Name="beskrivelse" ColumnName="beskrivelse" />
+                <ScalarProperty Name="navn" ColumnName="navn" />
+                <ScalarProperty Name="filextension" ColumnName="filextension" />
+                <ScalarProperty Name="illustrationID" ColumnName="illustrationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BilledDbKarakterers">
+            <EntityTypeMapping TypeName="ArkEntiteter.BilledDbKarakterer">
+              <MappingFragment StoreEntitySet="BilledDbKarakterer">
+                <ScalarProperty Name="raekkeFoelge" ColumnName="raekkeFoelge" />
+                <ScalarProperty Name="titel" ColumnName="titel" />
+                <ScalarProperty Name="karakter" ColumnName="karakter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BilledDbKategoriRelations">
+            <EntityTypeMapping TypeName="ArkEntiteter.BilledDbKategoriRelation">
+              <MappingFragment StoreEntitySet="BilledDbKategoriRelation">
+                <ScalarProperty Name="kategoriID" ColumnName="kategoriID" />
+                <ScalarProperty Name="illustrationID" ColumnName="illustrationID" />
+                <ScalarProperty Name="billedeKategoriID" ColumnName="billedeKategoriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BilledDbKkategoriers">
+            <EntityTypeMapping TypeName="ArkEntiteter.BilledDbKkategorier">
+              <MappingFragment StoreEntitySet="BilledDbKkategorier">
+                <ScalarProperty Name="superKategoriID" ColumnName="superKategoriID" />
+                <ScalarProperty Name="raekkeFoelge" ColumnName="raekkeFoelge" />
+                <ScalarProperty Name="kategoriTitel" ColumnName="kategoriTitel" />
+                <ScalarProperty Name="kategoriID" ColumnName="kategoriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mails">
+            <EntityTypeMapping TypeName="ArkEntiteter.Mail">
+              <MappingFragment StoreEntitySet="Mail">
+                <ScalarProperty Name="Afsender" ColumnName="Afsender" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailStatistiks">
+            <EntityTypeMapping TypeName="ArkEntiteter.MailStatistik">
+              <MappingFragment StoreEntitySet="MailStatistik">
+                <ScalarProperty Name="Mail_ID" ColumnName="Mail_ID" />
+                <ScalarProperty Name="Handling" ColumnName="Handling" />
+                <ScalarProperty Name="ArkID" ColumnName="ArkID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -61,16 +61,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArkEntiteter.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Baad.cs">
-      <DependentUpon>ArkEntiteter.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaadKategori.cs">
-      <DependentUpon>ArkEntiteter.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaadType.cs">
-      <DependentUpon>ArkEntiteter.tt</DependentUpon>
-    </Compile>
     <Compile Include="Begivenhed.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BilledDbBilleder.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BilledDbKarakterer.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BilledDbKategoriRelation.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BilledDbKkategorier.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mail.cs">
+      <DependentUpon>ArkEntiteter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MailStatistik.cs">
       <DependentUpon>ArkEntiteter.tt</DependentUpon>
     </Compile>
     <Compile Include="Medlem.cs">
@@ -80,12 +89,6 @@
       <DependentUpon>ArkEntiteter.tt</DependentUpon>
     </Compile>
     <Compile Include="Rostatistik.cs">
-      <DependentUpon>ArkEntiteter.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tur.cs">
-      <DependentUpon>ArkEntiteter.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Turdeltager.cs">
       <DependentUpon>ArkEntiteter.tt</DependentUpon>
     </Compile>
     <Compile Include="UdvidelseEntitetsmodel\ArkDatabaseUdvidelse.cs" />

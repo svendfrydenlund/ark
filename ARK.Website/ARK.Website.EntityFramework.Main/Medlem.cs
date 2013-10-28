@@ -14,11 +14,6 @@ namespace ARK.Website.EntityFramework.Main
     
     public partial class Medlem
     {
-        public Medlem()
-        {
-            this.Turdeltagers = new HashSet<Turdeltager>();
-        }
-    
         public int ID { get; set; }
         public System.DateTime IndsatTid { get; set; }
         public System.DateTime OpdateretTid { get; set; }
@@ -33,8 +28,9 @@ namespace ARK.Website.EntityFramework.Main
         public string KoenFelt { get; set; }
         public string MobilNummer { get; set; }
         public int RostatistikID { get; set; }
+        public string Brugernavn { get; set; }
+        public string Kodeord { get; set; }
     
-        public virtual ICollection<Turdeltager> Turdeltagers { get; set; }
         public virtual Rostatistik Rostatistik { get; set; }
     }
 }

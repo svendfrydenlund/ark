@@ -12,19 +12,13 @@ namespace ARK.Website.EntityFramework.Main
     using System;
     using System.Collections.Generic;
     
-    public partial class Tur
+    public partial class BilledDbKategoriRelation
     {
-        public Tur()
-        {
-            this.Turdeltagers = new HashSet<Turdeltager>();
-        }
+        public int billedeKategoriID { get; set; }
+        public int illustrationID { get; set; }
+        public int kategoriID { get; set; }
     
-        public int ID { get; set; }
-        public int BaadID { get; set; }
-        public int AntalKilometer { get; set; }
-        public System.DateTime StartTidspunkt { get; set; }
-    
-        public virtual Baad Baad { get; set; }
-        public virtual ICollection<Turdeltager> Turdeltagers { get; set; }
+        public virtual BilledDbBilleder BilledDbBilleder { get; set; }
+        public virtual BilledDbKkategorier BilledDbKkategorier { get; set; }
     }
 }
