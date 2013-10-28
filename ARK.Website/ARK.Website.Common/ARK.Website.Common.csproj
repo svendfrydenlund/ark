@@ -47,6 +47,7 @@
     <Compile Include="DTO\EMail\EMailHtmlForsendelseDTO.cs" />
     <Compile Include="DTO\RegnskabsmedlemDTO.cs" />
     <Compile Include="Enum\KoenEnum.cs" />
+    <Compile Include="Enum\MailHandling.cs" />
     <Compile Include="Enum\MedlemLogindStatusEnum.cs" />
     <Compile Include="Enum\MedlemsstatusEnum.cs" />
     <Compile Include="Interface\IApplikationKontekst.cs" />

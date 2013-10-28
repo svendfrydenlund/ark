@@ -16,7 +16,7 @@ namespace ARK.Website.EntityFramework.Main
     {
         public int ID { get; set; }
         public int ArkID { get; set; }
-        public int Handling { get; set; }
+        public ARK.Website.Common.Enum.MailHandling Handling { get; set; }
         public int Mail_ID { get; set; }
     
         public virtual Mail Mail { get; set; }
