@@ -102,6 +102,7 @@
           <Property Name="Body" Type="text" />
           <Property Name="Subject" Type="varchar" MaxLength="255" />
           <Property Name="Afsender" Type="varchar" MaxLength="255" />
+          <Property Name="Afsendt" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="MailStatistik">
           <Key>
@@ -111,6 +112,7 @@
           <Property Name="ArkID" Type="int" Nullable="false" />
           <Property Name="Handling" Type="int" Nullable="false" />
           <Property Name="Mail_ID" Type="int" Nullable="false" />
+          <Property Name="RegistreretTid" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Medlem">
           <Key>
@@ -390,6 +392,7 @@
           <Property Type="String" Name="Subject" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Afsender" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MailStatistiks" Relationship="ArkEntiteter.fk_MailStatistik_Mail1" FromRole="Mail" ToRole="MailStatistik" />
+          <Property Type="DateTime" Name="Afsendt" Nullable="false" />
         </EntityType>
         <EntityType Name="MailStatistik">
           <Key>
@@ -400,6 +403,7 @@
           <Property Type="ArkEntiteter.MailHandling" Name="Handling" Nullable="false" />
           <Property Type="Int32" Name="Mail_ID" Nullable="false" />
           <NavigationProperty Name="Mail" Relationship="ArkEntiteter.fk_MailStatistik_Mail1" FromRole="MailStatistik" ToRole="Mail" />
+          <Property Type="DateTime" Name="RegistreretTid" Nullable="false" />
         </EntityType>
         <Association Name="illustrationID">
           <End Type="ArkEntiteter.BilledDbBilleder" Role="BilledDbBilleder" Multiplicity="1" />
@@ -571,6 +575,7 @@
           <EntitySetMapping Name="Mails">
             <EntityTypeMapping TypeName="ArkEntiteter.Mail">
               <MappingFragment StoreEntitySet="Mail">
+                <ScalarProperty Name="Afsendt" ColumnName="Afsendt" />
                 <ScalarProperty Name="Afsender" ColumnName="Afsender" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
@@ -581,6 +586,7 @@
           <EntitySetMapping Name="MailStatistiks">
             <EntityTypeMapping TypeName="ArkEntiteter.MailStatistik">
               <MappingFragment StoreEntitySet="MailStatistik">
+                <ScalarProperty Name="RegistreretTid" ColumnName="RegistreretTid" />
                 <ScalarProperty Name="Mail_ID" ColumnName="Mail_ID" />
                 <ScalarProperty Name="Handling" ColumnName="Handling" />
                 <ScalarProperty Name="ArkID" ColumnName="ArkID" />

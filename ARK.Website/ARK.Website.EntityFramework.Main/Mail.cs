@@ -23,6 +23,7 @@ namespace ARK.Website.EntityFramework.Main
         public string Body { get; set; }
         public string Subject { get; set; }
         public string Afsender { get; set; }
+        public System.DateTime Afsendt { get; set; }
     
         public virtual ICollection<MailStatistik> MailStatistiks { get; set; }
     }
